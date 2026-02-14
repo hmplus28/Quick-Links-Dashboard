@@ -1,0 +1,1102 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لینک‌های دم‌دستی </title>
+  
+<link rel="icon" type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2724%27%20height%3D%2724%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%236ea8fe%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20stroke%3D%27none%27%20d%3D%27M0%200h24v24H0z%27%20fill%3D%27none%27/%3E%3Cpath%20d%3D%27M9%2015l6%20-6%27/%3E%3Cpath%20d%3D%27M11%206l.463%20-.536a5%205%200%200%201%207.071%207.072l-.534%20.464%27/%3E%3Cpath%20d%3D%27M13%2018l-.397%20.534a5.068%205.068%200%200%201%20-7.127%200a4.972%204.972%200%200%201%200%20-7.071l.524%20-.463%27/%3E%3C/svg%3E" />
+
+  <style>
+    :root{
+      --bg:#0b1020; --card:#121a33; --text:#e8ecff; --muted:#aab4e6;
+      --border:rgba(255,255,255,.08); --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --accent:#6ea8fe; --chip: rgba(110,168,254,.15); --input:#0f1630;
+      --danger:#ff5c7a; --dangerBg: rgba(255,92,122,.12);
+      --ok:#5cffb0; --okBg: rgba(92,255,176,.12);
+    }
+    [data-theme="light"]{
+      --bg:#f6f7fb; --card:#ffffff; --text:#141824; --muted:#5b6277;
+      --border:rgba(20,24,36,.12); --shadow: 0 10px 30px rgba(20,24,36,.10);
+      --accent:#2f6fed; --chip: rgba(47,111,237,.10); --input:#f0f2f7;
+      --danger:#d62839; --dangerBg: rgba(214,40,57,.10);
+      --ok:#0f9d58; --okBg: rgba(15,157,88,.10);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", "Vazirmatn", Arial;
+      background: radial-gradient(900px 500px at 90% -10%, rgba(110,168,254,.20), transparent 60%),
+                  radial-gradient(700px 400px at 10% 110%, rgba(176,110,254,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      min-height:100vh;
+    }
+    .wrap{max-width:1200px;margin:0 auto;padding:28px 16px 60px}
+    header{
+      display:flex; gap:12px; align-items:flex-start; justify-content:space-between;
+      margin-bottom:18px;
+    }
+    .title h1{margin:0 0 6px;font-size:22px}
+    .title p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .actions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+
+    .btn{
+      border:1px solid var(--border);
+      background:var(--card);
+      color:var(--text);
+      padding:9px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      font-size:13px;
+      display:inline-flex; gap:8px; align-items:center;
+      user-select:none;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{border-color: rgba(110,168,254,.35); background: rgba(110,168,254,.12)}
+    .btn.danger{border-color: rgba(255,92,122,.35); background: var(--dangerBg)}
+    .btn.ghost{background:transparent; box-shadow:none}
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-size:12px;
+      user-select:none;
+    }
+
+    .bar{
+      display:flex; gap:10px; align-items:center;
+      margin:16px 0 22px;
+      flex-wrap:wrap;
+    }
+    .search{
+      flex:1;
+      min-width: 260px;
+      display:flex;
+      background:var(--input);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      box-shadow:var(--shadow);
+    }
+    .search input{
+      width:100%;
+      border:none;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      font-size:14px;
+    }
+    .search input::placeholder{color:var(--muted)}
+    .count{white-space:nowrap}
+    .rightTools{display:flex; gap:10px; flex-wrap:wrap}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 6;
+      position: relative;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:14px 14px 12px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(6px);
+      background:rgba(255,255,255,.02);
+      overflow:hidden;
+      /* default category color (overridden per card) */
+      --catColor: var(--accent);
+    }
+    [data-theme="light"] .card{background:var(--card)}
+    @media (max-width: 900px){ .card{grid-column: span 12;} }
+
+    /* thin colored strip on the right (RTL-friendly) */
+    .card::before{
+      content:"";
+      position:absolute;
+      top:12px;
+      bottom:12px;
+      right:12px;
+      width:4px;
+      border-radius:999px;
+      background: var(--catColor);
+      box-shadow: 0 0 14px rgba(0,0,0,.0);
+      opacity: .95;
+    }
+
+    .cardHead{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+      padding-right: 12px; /* space for the strip */
+    }
+    .cardHead h2{
+      margin:0;
+      font-size:15px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+    .cardHead h2 .name{
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      max-width: 320px;
+    }
+    .meta{color:var(--muted); font-size:12px; font-weight:500}
+    .iconBtn{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:7px 10px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:12px;
+    }
+    .iconBtn:hover{border-color: rgba(110,168,254,.35)}
+    .iconBtn.danger:hover{border-color: rgba(255,92,122,.45); background: var(--dangerBg)}
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding-right: 12px; /* align with head */
+    }
+    .row{
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      padding:10px 12px;
+      border-radius:16px;
+    }
+    [data-theme="light"] .row{background:#fbfbfe}
+    .rowLeft{
+      display:flex; gap:10px; align-items:center; min-width:0;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: var(--catColor);
+      flex:0 0 auto;
+    }
+    .texts{min-width:0}
+    .texts .t{font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 520px}
+    .texts .s{color:var(--muted); font-size:11px; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width: 520px}
+    .rowRight{display:flex; gap:8px; align-items:center; flex:0 0 auto}
+    .pill{
+      font-size:11px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:5px 8px; border-radius:999px;
+      background:rgba(255,255,255,.02);
+    }
+
+    a.go{
+      text-decoration:none; color:var(--text);
+      border:1px solid var(--border);
+      padding:7px 10px; border-radius:12px;
+      background:rgba(255,255,255,.02);
+      font-size:12px;
+    }
+    a.go:hover{border-color: rgba(110,168,254,.35); background: rgba(110,168,254,.08)}
+
+    footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.8;
+      opacity:.95;
+    }
+
+    /* Modal */
+    .modalOverlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:16px;
+      z-index: 50;
+    }
+    .modal{
+      width:min(560px, 100%);
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:14px;
+    }
+    .modalHead{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom: 10px;
+    }
+    .modalHead h3{margin:0; font-size:15px}
+    .modalHead .x{cursor:pointer; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:12px; padding:6px 10px}
+    .modal p{margin:0 0 10px; color:var(--muted); font-size:12px; line-height:1.8}
+
+    .form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .field{grid-column: span 2}
+    .field.half{grid-column: span 1}
+    label{display:block; font-size:12px; color:var(--muted); margin-bottom:6px}
+    input, select, textarea{
+      width:100%;
+      border:1px solid var(--border);
+      background: var(--input);
+      color: var(--text);
+      border-radius:14px;
+      padding:10px 12px;
+      outline:none;
+      font-size:13px;
+    }
+    textarea{min-height:80px; resize:vertical}
+
+    /* nicer color input */
+    input[type="color"]{
+      padding:6px;
+      height:44px;
+      border-radius:14px;
+      cursor:pointer;
+    }
+
+    .swatches{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .swatch{
+      width:24px;height:24px;border-radius:8px;
+      border:1px solid var(--border);
+      cursor:pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,.20);
+    }
+
+    .modalActions{
+      display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .hint{
+      font-size:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      border-radius:14px;
+      padding:10px 12px;
+      color:var(--muted);
+      line-height:1.8;
+      margin-top:10px;
+    }
+    .warn{
+      border-color: rgba(255,92,122,.35);
+      background: var(--dangerBg);
+      color: var(--text);
+    }
+    .ok{
+      border-color: rgba(92,255,176,.35);
+      background: var(--okBg);
+      color: var(--text);
+    }
+
+    .toast{
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      max-width: 520px;
+      margin: 0 auto;
+      display:none;
+      z-index: 60;
+      border:1px solid var(--border);
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .toast small{color: var(--muted); display:block; margin-top:4px; font-size:11px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>لینک‌های دم‌دستی</h1>
+
+      </div>
+      <div class="actions">
+        <span class="chip" id="today"></span>
+        <button class="btn" id="toggleTheme" title="تغییر حالت نمایش">دارک/لایت</button>
+      </div>
+    </header>
+
+    <div class="bar">
+      <div class="search" role="search">
+        <input id="q" type="search" placeholder="جستجو بین لینک‌ها و دسته‌ها..." autocomplete="off" />
+      </div>
+
+      <div class="rightTools">
+        <button class="btn primary" id="addLinkBtn">+ لینک</button>
+        <button class="btn" id="addCatBtn">+ دسته</button>
+        <button class="btn" id="backupBtn">Backup</button>
+        <button class="btn" id="restoreBtn">Restore</button>
+        <div class="chip count" id="count">۰ لینک</div>
+      </div>
+    </div>
+
+    <main class="grid" id="grid"></main>
+
+  </div>
+
+  
+  <div class="modalOverlay" id="editOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalHead">
+        <h3 id="editTitle">...</h3>
+        <button class="x" id="editClose">بستن</button>
+      </div>
+      <p id="editDesc"></p>
+
+      <div class="form" id="editForm"></div>
+      <div class="modalActions" id="editActions"></div>
+    </div>
+  </div>
+
+  
+  <div class="modalOverlay" id="delOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalHead">
+        <h3>حذف با مسئولیت خودت</h3>
+        <button class="x" id="delClose">بستن</button>
+      </div>
+      <p id="delText"></p>
+
+      <div class="hint warn">
+        برای فعال شدن دکمه حذف، داخل کادر زیر دقیقاً بنویس: <b>DELETE</b>
+      </div>
+
+      <div class="form">
+        <div class="field">
+          <label>تأیید</label>
+          <input id="delConfirmInput" placeholder="DELETE" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="modalActions">
+        <button class="btn" id="delCancel">لغو</button>
+        <button class="btn danger" id="delDo" disabled>حذف</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <input type="file" id="restoreFile" accept="application/json" style="display:none" />
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ----------------------------
+    // Storage + Default Data
+    // ----------------------------
+    const STORAGE_KEY = "quicklinks.v3.data";
+
+    const DEFAULT_DATA = [
+      {
+        id: cryptoId(),
+        category: "Grafana",
+        color: "#6ea8fe",
+        items: [
+          { id: cryptoId(), title: "Grafana Home", url: "https://grafana.com/", note: "داشبورد" },
+        ]
+      },
+      {
+        id: cryptoId(),
+        category: "کار و پروژه",
+        color: "#a78bfa",
+        items: [
+          { id: cryptoId(), title: "Gmail", url: "https://mail.google.com/", note: "ایمیل" },
+          { id: cryptoId(), title: "Google Calendar", url: "https://calendar.google.com/", note: "جلسه‌ها" },
+        ]
+      }
+    ];
+
+    function cryptoId(){
+      return (crypto?.randomUUID?.() || ("id-" + Math.random().toString(16).slice(2) + Date.now().toString(16))).slice(0, 20);
+    }
+
+    function loadData(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if(!raw) return structuredClone(DEFAULT_DATA);
+        const parsed = JSON.parse(raw);
+        if(!Array.isArray(parsed)) throw new Error("bad shape");
+        // migrate/normalize
+        parsed.forEach(c=>{
+          if(!c.id) c.id = cryptoId();
+          if(!c.color) c.color = "#6ea8fe";
+          if(!Array.isArray(c.items)) c.items = [];
+          c.items.forEach(i=>{ if(!i.id) i.id = cryptoId(); });
+        });
+        return parsed;
+      }catch(e){
+        return structuredClone(DEFAULT_DATA);
+      }
+    }
+
+    let DATA = loadData();
+
+    function saveData(){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
+    }
+
+    // ----------------------------
+    // UI refs
+    // ----------------------------
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const countEl = document.getElementById('count');
+
+    const editOverlay = document.getElementById('editOverlay');
+    const editClose = document.getElementById('editClose');
+    const editTitle = document.getElementById('editTitle');
+    const editDesc = document.getElementById('editDesc');
+    const editForm = document.getElementById('editForm');
+    const editActions = document.getElementById('editActions');
+
+    const delOverlay = document.getElementById('delOverlay');
+    const delClose = document.getElementById('delClose');
+    const delText = document.getElementById('delText');
+    const delConfirmInput = document.getElementById('delConfirmInput');
+    const delDo = document.getElementById('delDo');
+    const delCancel = document.getElementById('delCancel');
+
+    const restoreFile = document.getElementById('restoreFile');
+    const toast = document.getElementById('toast');
+
+    // ----------------------------
+    // Utils
+    // ----------------------------
+    function normalize(s){
+      return (s || "")
+        .toString()
+        .replace(/[ي]/g, 'ی')
+        .replace(/[ك]/g, 'ک')
+        .trim()
+        .toLowerCase();
+    }
+    function toFaDigits(str){
+      return String(str).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+    }
+    function showToast(msg, sub=""){
+      toast.style.display = "block";
+      toast.innerHTML = `${escapeHtml(msg)}${sub ? `<small>${escapeHtml(sub)}</small>` : ""}`;
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=> toast.style.display="none", 2600);
+    }
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+    function isValidUrl(u){
+      try{
+        const url = new URL(u);
+        return ["http:", "https:"].includes(url.protocol);
+      }catch{
+        return false;
+      }
+    }
+    function totalLinks(data){
+      return data.reduce((acc, c) => acc + (c.items?.length || 0), 0);
+    }
+
+    // Hex -> rgba
+    function hexToRgba(hex, alpha){
+      const h = (hex || "").trim();
+      const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(h);
+      if(!m) return `rgba(110,168,254,${alpha})`;
+      const r = parseInt(m[1], 16);
+      const g = parseInt(m[2], 16);
+      const b = parseInt(m[3], 16);
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    // ----------------------------
+    // Theme + Date
+    // ----------------------------
+    const themeBtn = document.getElementById('toggleTheme');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || "dark";
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      render();
+    });
+
+    const today = new Date();
+    const fmt = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'Asia/Baku'
+    });
+
+
+    document.getElementById('today').textContent = fmt.format(today);
+
+    // ----------------------------
+    // Modals infra
+    // ----------------------------
+    function openOverlay(el){
+      el.style.display = "flex";
+      el.setAttribute("aria-hidden", "false");
+    }
+    function closeOverlay(el){
+      el.style.display = "none";
+      el.setAttribute("aria-hidden", "true");
+    }
+
+    editClose.onclick = ()=> closeOverlay(editOverlay);
+    editOverlay.addEventListener('click', (e)=> { if(e.target === editOverlay) closeOverlay(editOverlay); });
+
+    delClose.onclick = ()=> closeOverlay(delOverlay);
+    delCancel.onclick = ()=> closeOverlay(delOverlay);
+    delOverlay.addEventListener('click', (e)=> { if(e.target === delOverlay) closeOverlay(delOverlay); });
+
+    // ----------------------------
+    // Render
+    // ----------------------------
+    function render(){
+      const ft = normalize(q.value);
+      grid.innerHTML = "";
+
+      let totalVisible = 0;
+      const sorted = [...DATA].sort((a,b)=> a.category.localeCompare(b.category, 'fa'));
+
+      const isLight = (document.documentElement.getAttribute('data-theme') || "dark") === "light";
+      const borderAlpha = isLight ? 0.30 : 0.35;
+      const glowAlpha   = isLight ? 0.10 : 0.14;
+      const dotRingAlpha= isLight ? 0.20 : 0.18;
+
+      sorted.forEach(cat => {
+        const catName = cat.category;
+        const items = cat.items || [];
+        const catColor = cat.color || "#6ea8fe";
+
+        const filteredItems = items.filter(it => {
+          const hay = normalize(catName + " " + it.title + " " + (it.note||"") + " " + it.url);
+          return !ft || hay.includes(ft);
+        });
+
+        const catMatch = normalize(catName).includes(ft);
+        if (ft && !catMatch && filteredItems.length === 0) return;
+
+        totalVisible += filteredItems.length;
+
+        const card = document.createElement('section');
+        card.className = "card";
+
+        // set category color + border tint + soft outer glow
+        card.style.setProperty("--catColor", catColor);
+        card.style.borderColor = hexToRgba(catColor, borderAlpha);
+        card.style.boxShadow = `var(--shadow), 0 0 0 1px ${hexToRgba(catColor, glowAlpha)}`;
+
+        const head = document.createElement('div');
+        head.className = "cardHead";
+
+        const h2 = document.createElement('h2');
+        h2.innerHTML = `<span class="name">${escapeHtml(catName)}</span> <span class="meta">${toFaDigits(filteredItems.length)} لینک</span>`;
+
+        const headBtns = document.createElement('div');
+        headBtns.style.display="flex";
+        headBtns.style.gap="8px";
+
+        const addInCat = document.createElement('button');
+        addInCat.className = "iconBtn";
+        addInCat.textContent = "+ لینک";
+        addInCat.onclick = ()=> openLinkModal({mode:"add", categoryId: cat.id});
+
+        const editCat = document.createElement('button');
+        editCat.className = "iconBtn";
+        editCat.textContent = "ویرایش";
+        editCat.onclick = ()=> openCategoryModal({mode:"edit", categoryId: cat.id});
+
+        const delCat = document.createElement('button');
+        delCat.className = "iconBtn danger";
+        delCat.textContent = "حذف";
+        delCat.onclick = ()=> openDeleteModal({
+          kind: "category",
+          categoryId: cat.id,
+          title: catName,
+          extra: items.length ? `این دسته ${items.length} لینک دارد و همه حذف می‌شوند.` : ""
+        });
+
+        headBtns.appendChild(addInCat);
+        headBtns.appendChild(editCat);
+        headBtns.appendChild(delCat);
+
+        head.appendChild(h2);
+        head.appendChild(headBtns);
+
+        const list = document.createElement('div');
+        list.className = "links";
+
+        filteredItems
+          .sort((a,b)=> a.title.localeCompare(b.title, 'fa'))
+          .forEach(it => {
+            const row = document.createElement('div');
+            row.className = "row";
+
+            const left = document.createElement('div');
+            left.className = "rowLeft";
+
+            const dot = document.createElement('span');
+            dot.className = "dot";
+            dot.style.background = catColor;
+            dot.style.boxShadow = `0 0 0 4px ${hexToRgba(catColor, dotRingAlpha)}`;
+
+            const texts = document.createElement('div');
+            texts.className = "texts";
+            texts.innerHTML = `
+              <div class="t">${escapeHtml(it.title)}</div>
+              <div class="s">${escapeHtml(it.note || it.url)}</div>
+            `;
+
+            left.appendChild(dot);
+            left.appendChild(texts);
+
+            const right = document.createElement('div');
+            right.className = "rowRight";
+
+            const pill = document.createElement('span');
+            pill.className = "pill";
+            pill.textContent = "لینک";
+
+            const go = document.createElement('a');
+            go.className = "go";
+            go.href = it.url;
+            go.target = "_blank";
+            go.rel = "noopener noreferrer";
+            go.textContent = "باز کن";
+
+            const edit = document.createElement('button');
+            edit.className = "iconBtn";
+            edit.textContent = "ویرایش";
+            edit.onclick = ()=> openLinkModal({mode:"edit", categoryId: cat.id, linkId: it.id});
+
+            const del = document.createElement('button');
+            del.className = "iconBtn danger";
+            del.textContent = "حذف";
+            del.onclick = ()=> openDeleteModal({
+              kind: "link",
+              categoryId: cat.id,
+              linkId: it.id,
+              title: it.title,
+              extra: it.url
+            });
+
+            right.appendChild(pill);
+            right.appendChild(go);
+            right.appendChild(edit);
+            right.appendChild(del);
+
+            row.appendChild(left);
+            row.appendChild(right);
+            list.appendChild(row);
+          });
+
+        card.appendChild(head);
+        card.appendChild(list);
+        grid.appendChild(card);
+      });
+
+      countEl.textContent = toFaDigits(totalVisible) + " لینک";
+    }
+
+    q.addEventListener('input', render);
+
+    // ----------------------------
+    // Category CRUD (with color)
+    // ----------------------------
+    const PRESET_COLORS = [
+      "#6ea8fe", "#a78bfa", "#fb7185", "#34d399", "#fbbf24",
+      "#22c55e", "#60a5fa", "#f472b6", "#f97316", "#14b8a6"
+    ];
+
+    document.getElementById('addCatBtn').onclick = ()=> openCategoryModal({mode:"add"});
+
+    function openCategoryModal({mode, categoryId}){
+      const isEdit = mode === "edit";
+      const cat = isEdit ? DATA.find(c=>c.id===categoryId) : null;
+
+      const initialColor = (cat?.color || "#6ea8fe").toLowerCase();
+
+      editTitle.textContent = isEdit ? "ویرایش دسته" : "ساخت دسته جدید";
+      editDesc.textContent = isEdit ? "نام و رنگ دسته را تنظیم کن." : "یک دسته بساز و براش یک رنگ خوشگل انتخاب کن.";
+
+      editForm.innerHTML = `
+        <div class="field">
+          <label>نام دسته</label>
+          <input id="catName" placeholder="مثلاً: Grafana / ابزارها / کار..." value="${escapeHtml(cat?.category || "")}" />
+        </div>
+
+        <div class="field half">
+          <label>رنگ دسته</label>
+          <input id="catColor" type="color" value="${escapeHtml(initialColor)}" />
+        </div>
+
+        <div class="field half">
+          <label>نمونه رنگ</label>
+          <div class="hint" id="colorPreview" style="margin-top:0;border-color:${hexToRgba(initialColor,0.35)};box-shadow:0 0 0 1px ${hexToRgba(initialColor,0.12)};color:var(--text)">
+            این رنگ روی کارت اعمال می‌شود.
+          </div>
+        </div>
+
+        <div class="field">
+          <label>پیشنهادی‌ها</label>
+          <div class="swatches" id="swatches"></div>
+        </div>
+      `;
+
+      // swatches
+      const sw = document.getElementById('swatches');
+      sw.innerHTML = PRESET_COLORS.map(c => `<div class="swatch" data-c="${c}" style="background:${c}"></div>`).join("");
+
+      function updatePreview(hex){
+        const pv = document.getElementById('colorPreview');
+        pv.style.borderColor = hexToRgba(hex, 0.35);
+        pv.style.boxShadow = `0 0 0 1px ${hexToRgba(hex, 0.12)}`;
+      }
+
+      const colorInput = document.getElementById('catColor');
+      colorInput.addEventListener('input', ()=> updatePreview(colorInput.value));
+
+      sw.addEventListener('click', (e)=>{
+        const d = e.target?.dataset?.c;
+        if(!d) return;
+        colorInput.value = d;
+        updatePreview(d);
+      });
+
+      editActions.innerHTML = "";
+      const cancel = document.createElement('button');
+      cancel.className = "btn";
+      cancel.textContent = "لغو";
+      cancel.onclick = ()=> closeOverlay(editOverlay);
+
+      const save = document.createElement('button');
+      save.className = "btn primary";
+      save.textContent = isEdit ? "ذخیره تغییرات" : "ساخت";
+
+      save.onclick = ()=>{
+        const name = document.getElementById('catName').value.trim();
+        const color = document.getElementById('catColor').value.trim().toLowerCase();
+
+        if(!name){ showToast("نام دسته خالیه"); return; }
+        if(!/^#([a-f0-9]{6})$/i.test(color)){ showToast("رنگ معتبر نیست"); return; }
+
+        const exists = DATA.some(c => normalize(c.category) === normalize(name) && c.id !== categoryId);
+        if(exists){ showToast("این نام دسته قبلاً هست"); return; }
+
+        if(isEdit){
+          cat.category = name;
+          cat.color = color;
+          saveData(); render(); closeOverlay(editOverlay);
+          showToast("دسته ویرایش شد");
+        } else {
+          DATA.push({ id: cryptoId(), category: name, color, items: [] });
+          saveData(); render(); closeOverlay(editOverlay);
+          showToast("دسته ساخته شد");
+        }
+      };
+
+      editActions.appendChild(cancel);
+      editActions.appendChild(save);
+
+      openOverlay(editOverlay);
+      setTimeout(()=> document.getElementById('catName')?.focus(), 50);
+    }
+
+    // ----------------------------
+    // Link CRUD
+    // ----------------------------
+    document.getElementById('addLinkBtn').onclick = ()=>{
+      if(!DATA.length){
+        openCategoryModal({mode:"add"});
+        showToast("اول یه دسته بساز");
+        return;
+      }
+      openLinkModal({mode:"add", categoryId: DATA[0].id});
+    };
+
+    function openLinkModal({mode, categoryId, linkId}){
+      const isEdit = mode === "edit";
+      const fromCat = DATA.find(c=>c.id===categoryId);
+      if(!fromCat){ showToast("دسته پیدا نشد"); return; }
+
+      const link = isEdit ? fromCat.items.find(i=>i.id===linkId) : null;
+
+      editTitle.textContent = isEdit ? "ویرایش لینک" : "اضافه کردن لینک";
+      editDesc.textContent = isEdit ? "جزئیات را اصلاح کن." : "لینک جدید اضافه کن.";
+
+      const catOptions = DATA
+        .slice()
+        .sort((a,b)=> a.category.localeCompare(b.category,'fa'))
+        .map(c => `<option value="${c.id}" ${c.id===categoryId ? "selected":""}>${escapeHtml(c.category)}</option>`)
+        .join("");
+
+      editForm.innerHTML = `
+        <div class="field half">
+          <label>عنوان</label>
+          <input id="lnTitle" placeholder="مثلاً: GitHub" value="${escapeHtml(link?.title || "")}" />
+        </div>
+
+        <div class="field half">
+          <label>دسته</label>
+          <select id="lnCat">${catOptions}</select>
+        </div>
+
+        <div class="field">
+          <label>آدرس (URL)</label>
+          <input id="lnUrl" placeholder="https://example.com" value="${escapeHtml(link?.url || "")}" />
+        </div>
+
+        <div class="field">
+          <label>یادداشت (اختیاری)</label>
+          <input id="lnNote" placeholder="مثلاً: پنل / مستندات / ..." value="${escapeHtml(link?.note || "")}" />
+        </div>
+
+        <div class="hint">
+          فقط <b>http/https</b> قبول می‌کنیم.
+        </div>
+      `;
+
+      editActions.innerHTML = "";
+
+      const cancel = document.createElement('button');
+      cancel.className = "btn";
+      cancel.textContent = "لغو";
+      cancel.onclick = ()=> closeOverlay(editOverlay);
+
+      const save = document.createElement('button');
+      save.className = "btn primary";
+      save.textContent = isEdit ? "ذخیره" : "افزودن";
+
+      save.onclick = ()=>{
+        const title = document.getElementById('lnTitle').value.trim();
+        const url = document.getElementById('lnUrl').value.trim();
+        const note = document.getElementById('lnNote').value.trim();
+        const newCatId = document.getElementById('lnCat').value;
+
+        if(!title){ showToast("عنوان خالیه"); return; }
+        if(!url){ showToast("آدرس خالیه"); return; }
+        if(!isValidUrl(url)){ showToast("URL معتبر نیست", "باید با http یا https شروع شود."); return; }
+
+        const toCat = DATA.find(c=>c.id===newCatId);
+        if(!toCat){ showToast("دسته نامعتبر"); return; }
+
+        if(isEdit){
+          const idx = fromCat.items.findIndex(i=>i.id===linkId);
+          if(idx < 0){ showToast("لینک پیدا نشد"); return; }
+
+          const updated = { ...fromCat.items[idx], title, url, note };
+
+          if(fromCat.id === toCat.id){
+            fromCat.items[idx] = updated;
+          } else {
+            fromCat.items.splice(idx, 1);
+            toCat.items.push(updated);
+          }
+
+          saveData(); render(); closeOverlay(editOverlay);
+          showToast("لینک ویرایش شد");
+        } else {
+          toCat.items.push({ id: cryptoId(), title, url, note });
+          saveData(); render(); closeOverlay(editOverlay);
+          showToast("لینک اضافه شد");
+        }
+      };
+
+      editActions.appendChild(cancel);
+      editActions.appendChild(save);
+
+      openOverlay(editOverlay);
+      setTimeout(()=> document.getElementById('lnTitle')?.focus(), 50);
+    }
+
+    // ----------------------------
+    // Delete modal (typed confirmation)
+    // ----------------------------
+    let pendingDelete = null;
+
+    function openDeleteModal(payload){
+      pendingDelete = payload;
+      delConfirmInput.value = "";
+      delDo.disabled = true;
+
+      const lines = [];
+      if(payload.kind === "link"){
+        lines.push(`می‌خواهی لینک <b>${escapeHtml(payload.title)}</b> را حذف کنی؟`);
+        if(payload.extra) lines.push(`<span style="color:var(--muted)">${escapeHtml(payload.extra)}</span>`);
+      } else {
+        lines.push(`می‌خواهی دسته <b>${escapeHtml(payload.title)}</b> را حذف کنی؟`);
+        if(payload.extra) lines.push(`<span style="color:var(--muted)">${escapeHtml(payload.extra)}</span>`);
+      }
+      delText.innerHTML = lines.join("<br/>");
+
+      openOverlay(delOverlay);
+      setTimeout(()=> delConfirmInput.focus(), 50);
+    }
+
+    delConfirmInput.addEventListener('input', ()=>{
+      delDo.disabled = delConfirmInput.value.trim() !== "DELETE";
+    });
+
+    delDo.onclick = ()=>{
+      if(!pendingDelete) return;
+      if(delConfirmInput.value.trim() !== "DELETE") return;
+
+      if(pendingDelete.kind === "link"){
+        const cat = DATA.find(c=>c.id===pendingDelete.categoryId);
+        if(!cat){ showToast("دسته پیدا نشد"); closeOverlay(delOverlay); return; }
+        const idx = cat.items.findIndex(i=>i.id===pendingDelete.linkId);
+        if(idx < 0){ showToast("لینک پیدا نشد"); closeOverlay(delOverlay); return; }
+        cat.items.splice(idx, 1);
+        saveData(); render();
+        showToast("لینک حذف شد");
+      } else {
+        const idx = DATA.findIndex(c=>c.id===pendingDelete.categoryId);
+        if(idx < 0){ showToast("دسته پیدا نشد"); closeOverlay(delOverlay); return; }
+        DATA.splice(idx, 1);
+        saveData(); render();
+        showToast("دسته حذف شد");
+      }
+
+      pendingDelete = null;
+      closeOverlay(delOverlay);
+    };
+
+    // ----------------------------
+    // Backup / Restore
+    // ----------------------------
+    document.getElementById('backupBtn').onclick = ()=>{
+      const payload = {
+        version: 3,
+        exportedAt: new Date().toISOString(),
+        data: DATA
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+      const a = document.createElement('a');
+      const ts = new Date();
+      const stamp = ts.getFullYear() + "-" + String(ts.getMonth()+1).padStart(2,"0") + "-" + String(ts.getDate()).padStart(2,"0");
+      a.download = `quicklinks-backup-${stamp}.json`;
+      a.href = URL.createObjectURL(blob);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=> URL.revokeObjectURL(a.href), 1000);
+      showToast("Backup دانلود شد");
+    };
+
+    document.getElementById('restoreBtn').onclick = ()=>{
+      openOverlay(editOverlay);
+      editTitle.textContent = "Restore (بازیابی)";
+      editDesc.textContent = "فایل JSON بکاپ را انتخاب کن. این کار داده‌های فعلی را کامل جایگزین می‌کند.";
+
+      editForm.innerHTML = `
+        <div class="hint warn">
+          هشدار: بعد از Restore، وضعیت فعلی پاک می‌شود. اگر شک داری، اول Backup بگیر.
+        </div>
+        <div class="field">
+          <label>انتخاب فایل بکاپ</label>
+          <button class="btn" id="pickFileBtn" type="button">انتخاب فایل</button>
+          <div class="hint" id="pickedInfo">هنوز فایلی انتخاب نشده.</div>
+        </div>
+      `;
+
+      editActions.innerHTML = "";
+      const cancel = document.createElement('button');
+      cancel.className = "btn";
+      cancel.textContent = "لغو";
+      cancel.onclick = ()=> closeOverlay(editOverlay);
+
+      const doRestore = document.createElement('button');
+      doRestore.className = "btn danger";
+      doRestore.textContent = "Restore";
+      doRestore.disabled = true;
+
+      editActions.appendChild(cancel);
+      editActions.appendChild(doRestore);
+
+      let fileText = null;
+
+      document.getElementById('pickFileBtn').onclick = ()=> restoreFile.click();
+
+      restoreFile.onchange = async ()=>{
+        const f = restoreFile.files?.[0];
+        if(!f) return;
+        try{
+          fileText = await f.text();
+          document.getElementById('pickedInfo').className = "hint ok";
+          document.getElementById('pickedInfo').textContent = `فایل انتخاب شد: ${f.name}`;
+          doRestore.disabled = false;
+        }catch{
+          document.getElementById('pickedInfo').className = "hint warn";
+          document.getElementById('pickedInfo').textContent = "خواندن فایل شکست خورد.";
+          doRestore.disabled = true;
+        }
+      };
+
+      doRestore.onclick = ()=>{
+        if(!fileText) return;
+
+        let parsed;
+        try{ parsed = JSON.parse(fileText); }
+        catch{ showToast("فایل JSON معتبر نیست"); return; }
+
+        let incoming = null;
+        if(Array.isArray(parsed)) incoming = parsed;
+        else if(parsed && Array.isArray(parsed.data)) incoming = parsed.data;
+
+        if(!incoming){ showToast("ساختار بکاپ نامعتبر است"); return; }
+
+        // minimal validation + normalize
+        const ok = incoming.every(c => typeof c.category === "string" && Array.isArray(c.items));
+        if(!ok){ showToast("داده‌ها ناقص/نامعتبرند"); return; }
+
+        incoming.forEach(c=>{
+          if(!c.id) c.id = cryptoId();
+          if(!c.color || !/^#([a-f0-9]{6})$/i.test(c.color)) c.color = "#6ea8fe";
+          if(!Array.isArray(c.items)) c.items = [];
+          c.items.forEach(i=>{
+            if(!i.id) i.id = cryptoId();
+          });
+        });
+
+        DATA = incoming;
+        saveData();
+        render();
+        closeOverlay(editOverlay);
+        showToast("Restore انجام شد", `تعداد کل لینک‌ها: ${totalLinks(DATA)}`);
+        restoreFile.value = "";
+      };
+
+      openOverlay(editOverlay);
+    };
+
+    // ----------------------------
+    // Init
+    // ----------------------------
+    saveData();
+    render();
+  </script>
+</body>
+</html>
+
